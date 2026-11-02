@@ -128,7 +128,6 @@ function setupEvents() {
       return a.date.localeCompare(b.date);
     });
 
-    // show on page
     list.innerHTML = "";
     results.forEach(function (e) {
       const card = document.createElement("div");
@@ -147,7 +146,6 @@ function setupEvents() {
       count.textContent = results.length + " event(s) found";
     }
 
-    // update map pins
     if (markers) {
       markers.clearLayers();
       results.forEach(function (e) {
@@ -189,7 +187,7 @@ function checkField(field) {
   return false;
 }
 
-// checks every field in a form
+
 function checkForm(form) {
   let allGood = true;
   const fields = form.querySelectorAll("input, select, textarea");
@@ -210,7 +208,6 @@ function setupEnquiry() {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // stop here if any field is invalid
     if (checkForm(form) === false) return;
 
     // get what the user typed
@@ -219,7 +216,7 @@ function setupEnquiry() {
     const qty = Number(document.getElementById("quantity").value);
     let message = "";
 
-    // work out the response
+  
     if (type === "sponsor") {
       let tier = "Bronze";
       if (qty >= 100) tier = "Gold";
@@ -231,12 +228,12 @@ function setupEnquiry() {
       message = "Thank you " + name + "! You can drop off " + qty + " item(s) at any MSG event.";
     }
 
-    // show the response on the page
+  
     response.hidden = false;
     response.className = "response success";
     response.textContent = message;
 
-    // AJAX: send the form data without reloading the page
+
     fetch(form.action, {
       method: "POST",
       body: new FormData(form),
@@ -259,7 +256,7 @@ function setupContact() {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // stop here if any field is invalid
+  
     if (checkForm(form) === false) return;
 
     // get what the user typed
@@ -269,7 +266,7 @@ function setupContact() {
     const type = document.getElementById("ctype").value;
     const text = document.getElementById("cmessage").value;
 
-    // build the email
+  
     const subject = type + " from " + name;
     const body = "Name: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\n\n" + text;
 
@@ -277,7 +274,7 @@ function setupContact() {
     document.getElementById("emailText").textContent =
       "To: molokommeoratile406@gmail.com\nSubject: " + subject + "\n\n" + body;
 
-    // make the Send button open the email app
+    
     document.getElementById("sendEmail").href =
       "mailto:molokommeoratile406@gmail.com?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);

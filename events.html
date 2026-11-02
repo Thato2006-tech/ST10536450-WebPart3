@@ -5,6 +5,7 @@
    <title>MSG Blanket Drive Events</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="extra.css">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 <header>
@@ -27,6 +28,33 @@
    <p>MSG has combined the passion for car with helping people who are in need</p>
    <h2>Our Events</h2>
    <p>MSG uses car meets and community events as an opportunity forcar enthusiasts to come together and support people in need</p>
+
+   <section class="events-section">
+      <h2>Find an Event</h2>
+      <div class="filter-bar">
+        <label for="eventSearch" class="sr-only">Search events</label>
+        <input type="search" id="eventSearch" placeholder="Search by name or area...">
+        <label for="eventType" class="sr-only">Filter by type</label>
+        <select id="eventType">
+          <option value="all">All types</option>
+          <option value="Car Meet">Car Meet</option>
+          <option value="Collection Drive">Collection Drive</option>
+          <option value="Delivery Day">Delivery Day</option>
+        </select>
+        <label for="eventSort" class="sr-only">Sort events</label>
+        <select id="eventSort">
+          <option value="date">Sort by date</option>
+          <option value="name">Sort by name</option>
+        </select>
+      </div>
+      <p id="eventCount"></p>
+      <div id="eventList"></div>
+    </section>
+
+    <section class="events-section">
+      <h3>Where We Meet</h2>
+      <div id="map"></div>
+    </section>
 <img src="images/event00.jpeg" width="900">
 <img src="images/event01.jpeg 01.jpeg" width="900">
 <img src="images/event02.jpeg" width="900">
@@ -37,5 +65,6 @@
   <p>&copy;2026 MSG Blanket Drive. All rights reserved</p>
 </footer>
 <script src="script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
 </html>
